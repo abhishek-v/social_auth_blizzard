@@ -1,0 +1,6 @@
+services:
+  social_auth_blizzard.manager:
+    class: Drupal\social_auth_blizzard\BlizzardAuthManager
+    arguments:
+      - '@config.factory'
+      - '@logger.factory'

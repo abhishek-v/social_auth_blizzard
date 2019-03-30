@@ -1,0 +1,27 @@
+social_auth_blizzard.redirect_to_blizzard:
+  path: 'user/login/blizzard'
+  defaults:
+    _controller: '\Drupal\social_auth_blizzard\Controller\BlizzardAuthController::redirectToProvider'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+social_auth_blizzard.callback:
+  path: 'user/login/blizzard/callback'
+  defaults:
+    _controller: '\Drupal\social_auth_blizzard\Controller\BlizzardAuthController::callback'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+social_auth_blizzard.settings_form:
+  path: 'admin/config/social-api/social-auth/blizzard'
+  defaults:
+    _title: 'Social Auth Blizzard settings'
+    _form: '\Drupal\social_auth_blizzard\Form\BlizzardAuthSettingsForm'
+  requirements:
+    _permission: 'administer social api authentication'
