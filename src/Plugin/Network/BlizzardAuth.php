@@ -118,8 +118,8 @@ class BlizzardAuth extends NetworkBase implements BlizzardAuthInterface {
       $league_settings = [
         'clientId'          => $settings->getClientId(),
         'clientSecret'      => $settings->getClientSecret(),
-        #'redirectUri'       => Url::fromRoute('social_auth_blizzard.callback')->setAbsolute()->toString()
-        'redirectUri'       =>  "https://localhost/drupal8_73/user/login/blizzard/callback"
+        //'redirectUri'       => Url::fromRoute('social_auth_blizzard.callback')->setAbsolute()->toString()
+        'redirectUri'       => Url::fromUri('internal:/user/login/blizzard/callback',$options=array('https'=>TRUE))->setAbsolute()->toString()
       ];
 
       // Proxy configuration data for outward proxy.

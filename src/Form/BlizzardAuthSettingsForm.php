@@ -105,7 +105,7 @@ class BlizzardAuthSettingsForm extends SocialAuthSettingsForm {
       '#disabled' => TRUE,
       '#title' => $this->t('Valid OAuth redirect URIs'),
       '#description' => $this->t('Copy this value to <em>Valid OAuth redirect URIs</em> field of your Blizzard settings.'),
-      '#default_value' => Url::fromRoute('social_auth_blizzard.callback')->setAbsolute()->toString(),
+      '#default_value' => Url::fromUri('internal:/user/login/blizzard/callback',$options=array('https'=>TRUE))->setAbsolute()->toString(),
     ];
 
     return parent::buildForm($form, $form_state);
